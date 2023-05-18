@@ -52,7 +52,8 @@ function generatePassword(passwordLength, includeSpecial, includeNumeric, includ
   if(includeUppercase){
     masterArray.concat(uppercaseArray)
   }
-
+  masterArray.push(passwordLength, includeSpecial, includeNumeric, includeLowercase, includeUppercase) 
+  
   // Make password, maybe a push to a new array with random?
   for (var i=0; i<passwordLength; i++){
     
