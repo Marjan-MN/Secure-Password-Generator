@@ -23,13 +23,16 @@ The first step is to install the Visual Studio Code on your local system. Then i
 
 
 ## Mockup
-### Screenshots
+### Screenshot
 
 ![The password generation webpage includes a button to generat password and a empty box that the new password going to be there](./assets/03-javascript-homework-demo.png)
 
 ## Credits
 
 "I received valuable assistance from my instructor, TAs, and the "Ask BCS" feature in the Slack App while completing this project. Their help enabled me to learn a lot and complete the project successfully."
+- To check if a variable (including a string) is a number, check if it is not a number:https://stackoverflow.com/questions/175739/how-can-i-check-if-a-string-is-a-valid-number
+- 3 Ways to Merge Arrays in JavaScript
+https://dmitripavlutin.com/javascript-merge-arrays/
 
 
 ## License

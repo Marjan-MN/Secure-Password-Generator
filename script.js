@@ -7,13 +7,13 @@ function writePassword() {
   // Prompt 1
   var passwordLength = prompt("What should the length of the password be?")
   // Check if password is correct length
-  if (passwordLength > 129 || passwordLength < 8){
-    alert("Password length must be less than 129 Characters and more than 8 characters.")
+  if (passwordLength > 128 || passwordLength < 8){
+    alert("Password length must be less than 128 Characters and more than 8 characters.")
     return
   }
   // Check if not a number
   if (isNaN(passwordLength)){
-    alert("Length must be an Integer.")
+    alert("Password length must be an Integer.")
     return
   }
   // Check if decimal
@@ -40,28 +40,29 @@ function generatePassword(passwordLength, includeSpecial, includeNumeric, includ
   var lowercaseArray = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm']
   var uppercaseArray = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M']
 
+  
   if (includeSpecial){
-    masterArray.concat(specialArray)
+    masterArray = masterArray.concat(specialArray)
   }
   if (includeNumeric){
-    masterArray.concat(numericArray)
+    masterArray = masterArray.concat(numericArray)
   }
   if (includeLowercase){
-    masterArray.concat(lowercaseArray)
+    masterArray = masterArray.concat(lowercaseArray)
   }
   if(includeUppercase){
-    masterArray.concat(uppercaseArray)
+    masterArray = masterArray.concat(uppercaseArray)
   }
-  masterArray.push(passwordLength, includeSpecial, includeNumeric, includeLowercase, includeUppercase) 
   
-  // Make password, maybe a push to a new array with random?
+ 
+  var passwordArray = [];
   for (var i=0; i<passwordLength; i++){
-    
-
+    passwordArray.push(masterArray[Math.floor(Math.random() * masterArray.length)])
+  
   }
 
   // return the password string 
-  return 
+  return passwordArray.join("")
 }
 
 
