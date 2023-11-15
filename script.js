@@ -1,23 +1,23 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+
 
 // Write password to the #password input
 function writePassword() {
 
   // Prompt 1
-  var passwordLength = prompt("What should the length of the password be?")
+  var passwordLength = prompt("How many characters would you like your password to contain?");
   // Check if password is correct length
-  if (passwordLength > 128 || passwordLength < 8){
+  if (passwordLength > 128 || passwordLength < 8) {
     alert("Password length must be less than 128 Characters and more than 8 characters.")
     return
   }
   // Check if not a number
-  if (isNaN(passwordLength)){
+  if (isNaN(passwordLength)) {
     alert("Password length must be an Integer.")
     return
   }
   // Check if decimal
-  if (passwordLength % 1 !== 0){
+  if (passwordLength % 1 !== 0) {
     alert("Re-enter a number that is not a decimal.")
     return
   }
@@ -33,38 +33,38 @@ function writePassword() {
   passwordText.value = password;
 
 }
-function generatePassword(passwordLength, includeSpecial, includeNumeric, includeLowercase, includeUppercase){
+function generatePassword(passwordLength, includeSpecial, includeNumeric, includeLowercase, includeUppercase) {
   var masterArray = [];
-  var specialArray = ['!', '#', '$','%', '&', '(', ')', '*', '+', '-', '.', '/', ':', ';', '<', '=', '>', '?', '@', '[', '`', '{', '|', '}', '~']
-  var numericArray = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+  var specialArray = ['/', '^', '[', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '_', '+', '-', '=', '[', ']', '{', '}', ';', ':', '|', ',', '.', '<', '>', '?', '*']
+  var numericArray = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
   var lowercaseArray = ['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p', 'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'z', 'x', 'c', 'v', 'b', 'n', 'm']
   var uppercaseArray = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P', 'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L', 'Z', 'X', 'C', 'V', 'B', 'N', 'M']
 
-  
-  if (includeSpecial){
+
+  if (includeSpecial) {
     masterArray = masterArray.concat(specialArray)
   }
-  if (includeNumeric){
+  if (includeNumeric) {
     masterArray = masterArray.concat(numericArray)
   }
-  if (includeLowercase){
+  if (includeLowercase) {
     masterArray = masterArray.concat(lowercaseArray)
   }
-  if(includeUppercase){
+  if (includeUppercase) {
     masterArray = masterArray.concat(uppercaseArray)
   }
-  
- 
+
+
   var passwordArray = [];
-  for (var i=0; i<passwordLength; i++){
+  for (var i = 0; i < passwordLength; i++) {
     passwordArray.push(masterArray[Math.floor(Math.random() * masterArray.length)])
-  
+
   }
 
   // return the password string 
   return passwordArray.join("")
 }
 
-
+var generateBtn = document.querySelector("#generate");
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
